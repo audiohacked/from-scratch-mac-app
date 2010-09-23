@@ -19,22 +19,36 @@
  */
 #import "AppDelegate.h"
 #import "MenuPopulator.h"
+#import "Badger.h"
 
 @implementation AppDelegate
 
 -(void) applicationWillFinishLaunching:(NSNotification *)aNotification
 {
 	[MenuPopulator populateMainMenu];
+	a_Badger = [[Badger alloc] init];
+	
+	[a_Badger setRunning];
 }
 
 -(void) applicationWillTerminate:(NSNotification *)aNotification
 {
+	[a_Badger setQuitting];
+
+	[NSThread sleepForTimeInterval:10];
+
+	[a_Badger release];
 	[NSApp setDelegate:nil];
 }
 
 -(BOOL) applicationShouldTerminateAfterLastWindowClosed:(NSApplication*)theApp
 {
 	return YES;
+}
+
+- (void) applicationWillUpdate:(NSNotification*)aNotification
+{
+	[a_Badger updateBadge];
 }
 
 -(NSString *)applicationName

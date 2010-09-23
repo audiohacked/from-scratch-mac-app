@@ -20,9 +20,12 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class Badger;
+
 @interface AppDelegate : NSObject < NSApplicationDelegate >
 {
 	NSString * m_applicationName;
+	Badger * a_Badger;
 }
 
 -(NSString *)applicationName;

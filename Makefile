@@ -28,6 +28,8 @@ LDFLAGS += -lobjc -framework Foundation -framework Cocoa -framework WebKit
 TARGET := test
 OBJS := \
 	AppDelegate.o \
+	Badger.o \
+	BadgeView.o \
 	BrowserDelegate.o \
 	BrowserView.o \
 	MenuPopulator.o \
@@ -52,7 +54,7 @@ $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean: 
-	rm -rf#.o $(TARGET) $(TARGET).app
+	rm -rf *.o $(TARGET) $(TARGET).app
 
 AppBundle: $(TARGET)
 	mkdir -p $(TARGET).app/Contents/{_CodeSignature,Frameworks,MacOS,Plugins,Resources,Versions}

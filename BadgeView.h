@@ -17,3 +17,16 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
  */
+
+#import <Cocoa/Cocoa.h>
+
+@interface BadgeView : NSView
+{
+	NSMutableDictionary * fAttributes;
+	BOOL fQuitting;
+}
+
+- (id) initWithFrame:(NSRect) frame;
+
+- (void) setQuitting;
+@end
